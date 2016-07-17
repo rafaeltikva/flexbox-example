@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body, html {
+            height: 100%;
+        }
+
+        .container {
+            display: flex; /* renders the container as a block */
+            background-color: #000;
+            height: 100%;
+        }
+
+        .container.inline {
+            display: inline-flex; /* renders the container inline */
+        }
+
+        .container.center {
+            justify-content: center; /* adjusts the positions of flex items on the main axis (horizontally)*/
+        }
+
+        .container.right {
+            justify-content: flex-end;
+        }
+
+        .container.distribute-space-between {
+            justify-content: space-between;
+        }
+
+        .container.distribute-space-around {
+            justify-content: space-around;
+        }
+
+        .container.vertical-align.center {
+            align-items: center; /* align-items is complementary to justify-content. They adjust the way flex items are positioned on the Cross Axis (vertically) */
+        }
+
+        .container.vertical-align.end {
+            align-items: flex-end;
+        }
+
+        .container.vertical-align.stretch {
+            align-items: stretch; /* stretches flex items that don't have a height set */
+        }
+
+        .container.vertical-align.baseline {
+            align-items: baseline; /* aligns the items to the baseline of the lowest item. baseline refers to the text baseline */
+        }
+
+        .container.rtl {
+            flex-direction: row-reverse; /* flex-direction allows you to change the axes of the Flex Container */
+        }
+
+        .container.vertical {
+            flex-direction: column;
+        }
+
+        .container.vertical-backwards {
+            flex-direction: column-reverse;
+        }
+
+        .container.wrap {
+            flex-wrap: wrap; /* wraps the items into additional flex lines if there's not enough room for them on one flex line */
+        }
+        .container.wrap-reverse {
+            flex-wrap: wrap-reverse; /* same as wrap, but wraps it in the opposite direction of the Cross Axis (i.e vertically) */
+        }
+
+        .container.wrap.vertical-align.start {
+            align-content: flex-start; /* align-content modifies the behavior of flex-wrap. It's similar to align-items (also aligns vertically), but instead of aligning Flex items, it aligns Flex Lines. */
+        }
+
+        .container.wrap.vertical-align.end {
+            align-content: flex-end;
+        }
+        .container.wrap.vertical-align.center {
+            align-content: center;
+        }
+        .container.wrap.vertical-align.distribute-space-around {
+            align-content: space-around;
+        }
+        .container.wrap.vertical-align.distribute-space-between {
+            align-content: space-between;
+        }
+
+        .container.flex-flow-horizontal {
+            flex-flow: row nowrap; /* flex-flow is a shorthand for flex-direction and flex-wrap */
+            /* This is the default */
+        }
+        .container.flex-flow-vertical {
+            flex-flow: column nowrap;
+        }
+
+        .item {
+            flex: 1; /* sets the ratio of avialable space this item takes. Here we set all items to an equal size */
+            background-color: #fff;
+            margin: 1em;
+            height: 50px;
+            width: 200px;
+        }
+
+        .item.item-2 {
+            padding: 1em;
+        }
+        .item.double-size {
+            flex: 2; /* we set this item to take double the size of the rest of the items on the flex line */
+        }
+        .item.first {
+            order: -1;  /* adjusts the order of the flex item. This is useful when the document order and the displayed order need to be different */
+        }
+        .item.extra-space-right {
+            margin-right: auto; /* margins in flexbox are even more powerful. An "auto" margin will absorb extra space */
+        }
+        .item.extra-space-left {
+            margin-left: auto;
+        }
+        .item.extra-space.center {
+            margin: auto;
+        }
+        .item.vertical-align.start {
+            align-self: flex-start; /* align-self effectively overrides the Flex container's align-items property for this specific item */
+        }
+        .item.vertical-align.end {
+            align-self: flex-end;
+        }
+        .item.vertical-align.center {
+            align-self: center; /* vertical centering! */
+            /*margin: auto;*/ /* has a similar affect to align-self: center */
+        }
+        .item.vertical-align.baseline {
+            align-self: baseline;
+        }
+    </style>
+</head>
+<body>
+<div class="container flex-flow-horizontal">
+    <div class="item item-1">
+        <span>Item 1</span>
+    </div>
+    <div class="item item-2 vertical-align baseline">
+        <span>Item 2</span>
+    </div>
+    <div class="item item-3 vertical-align baseline">
+        <span>Item 3</span>
+    </div>
+    <div class="item item-4 first">
+        <span>Item 4</span>
+    </div>
+    <div class="item item-5 vertical-align end">
+        <span>Item 5</span>
+    </div>
+    <div class="item item-6 extra-space-left">
+        <span>Item 6</span>
+    </div>
+    <div class="item item-7 double-size">
+        <span>Item 7</span>
+    </div>
+    <div class="item item-8 vertical-align center">
+        <span>Item 8</span>
+    </div>
+</div>
+
+</body>
+</html>
